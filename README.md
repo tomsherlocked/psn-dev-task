@@ -1,5 +1,39 @@
 # Dev task
 
+For further improvements, prep for production and other writeup bits - [go here](#improving-mobile-navigation)
+
+## Installation & Running
+
+- Clone repo
+- Create `.env` in the root of the repo and add the given API url in the format`API_URL=<full api url>`
+- Install packages with `npm i`
+- Run `npm run dataload` to download a copy of the API response (this gets around the CORS issue)
+- Run `npm run start` to run the frontend application
+
+### Tech stack
+- Bootstrapped using `create-react-app`
+- Routing handled by `react-router`
+- CSS handled with tailwindCSS
+- 3rd party libraries used for accordians, carousels and loading spinners
+
+- I had a CORS issue when hitting the video API from my frontend, so the npm script `npm run dataload` calls the API and writes the results to a static text file. 
+### Demo
+
+> Note: The app loads dummy data in for all videos (so search results, etc may not be relevant). In places, random videos are returned to simulate a variety of "real" responses. YouTube "shorts" also return malformed thumbnails so they may not show thumbnails correctly.
+
+- The app runs at `localhost:3000` - this opens up to the homepage, designed for viewing with Google Chrome's iPhone 6 emulation.
+- All videos/links are clickable, aside from the dummy header/footer, which are just static images.
+- Search using the search bar (results are randomly generated) or navigate through the homepage carousels
+- Watch videos and interact with more by clicking through to a video watch page
+
+
+### Example pages
+
+* [Homepage](http://localhost:3000/)
+* [Search results](http://localhost:3000/search/gravel) - replace "gravel" with your search term, or navigate from the search bar
+* [Video watch page](http://localhost:3000/watch/dZkUYi3iehY) - replace the video id with your video id, or navigate from a results page
+
+
 ## Improving mobile navigation
 
 The goal was to improve the mobile navigation for globalcyclingnetwork.com. I chose to improve the video watch interactions, where users can search for, and watch, videos from the GCN channel.
@@ -48,35 +82,3 @@ If I had control over all aspects of a deployment, I would;
 - Set up some form of autoscaling scaling if running the frontend on a kubernetes style platform
 - Set up caching for any APIs and dynamic assets. If using an additional metadata/video API, also set up long term cold storage and regular database replication to ensure video data was preserved.
 - Set up tracking using Google Analytics or similar, to track top performing sections of the site
-
-## Installation & Running
-
-- Clone repo
-- Create `.env` in the root of the repo and add the given API url in the format`API_URL=<full api url>`
-- Install packages with `npm i`
-- Run `npm run dataload` to download a copy of the API response (this gets around the CORS issue)
-- Run `npm run start` to run the frontend application
-
-### Tech stack
-- Bootstrapped using `create-react-app`
-- Routing handled by `react-router`
-- CSS handled with tailwindCSS
-- 3rd party libraries used for accordians, carousels and loading spinners
-
-- I had a CORS issue when hitting the video API from my frontend, so the npm script `npm run dataload` calls the API and writes the results to a static text file. 
-### Demo
-
-> Note: The app loads dummy data in for all videos (so search results, etc may not be relevant). In places, random videos are returned to simulate a variety of "real" responses. YouTube "shorts" also return malformed thumbnails so they may not show thumbnails correctly.
-
-- The app runs at `localhost:3000` - this opens up to the homepage, designed for viewing with Google Chrome's iPhone 6 emulation.
-- All videos/links are clickable, aside from the dummy header/footer, which are just static images.
-- Search using the search bar (results are randomly generated) or navigate through the homepage carousels
-- Watch videos and interact with more by clicking through to a video watch page
-
-
-### Example pages
-
-* [Homepage](http://localhost:3000/)
-* [Search results](http://localhost:3000/search/gravel) - replace "gravel" with your search term, or navigate from the search bar
-* [Video watch page](http://localhost:3000/watch/dZkUYi3iehY) - replace the video id with your video id, or navigate from a results page
-
